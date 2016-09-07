@@ -1,0 +1,31 @@
+static  String Array[]={" Hello " , " This " , "is ", "Sorting ", "Example"};
+String  temp;
+
+//Keeps track of the smallest string's index
+int  shortestStringIndex; 
+
+public static void main(String[] args)  
+{              
+
+ //I reduced the upper bound from Array.length to (Array.length - 1)
+ for(int j=0; j < Array.length - 1;j++)
+ {
+     shortestStringIndex = j;
+
+     for (int i=j+1 ; i<Array.length; i++)
+     {
+         //We keep track of the index to the smallest string
+         if(Array[i].trim().compareTo(Array[shortestStringIndex].trim())<0)
+         {
+             shortestStringIndex = i;  
+         }
+     }
+     //We only swap with the smallest string
+     if(shortestStringIndex != j)
+     {
+         String temp = Array[j];
+         Array[j] = Array[shortestStringIndex]; 
+         Array[shortestStringIndex] = temp;
+     }
+ }
+}
